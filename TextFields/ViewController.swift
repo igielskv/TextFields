@@ -43,7 +43,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @objc func keyboardWillShow(_ notification: NSNotification) {
         
-        let keyboardSpacing: CGFloat = 16.0 // Standard value for spacing between keyboard and textfield
+        let keyboardSpacing: CGFloat = 8.0 // Standard value for spacing between keyboard and textfield
         
         guard let userInfo = notification.userInfo,
             let keyboardFrameValue = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue

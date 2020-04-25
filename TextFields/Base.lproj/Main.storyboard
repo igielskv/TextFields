@@ -31,8 +31,8 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="et7-SK-jfi" secondAttribute="trailing" constant="30" id="4jh-yC-JYJ"/>
                             <constraint firstItem="9eN-3D-QUa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="FSh-AS-ZIm"/>
                             <constraint firstItem="et7-SK-jfi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="Nyp-j4-Xyz"/>
-                            <constraint firstItem="9eN-3D-QUa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="RyD-Oa-WMb"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="et7-SK-jfi" secondAttribute="bottom" constant="60" id="XRf-li-uTN"/>
+                            <constraint firstItem="9eN-3D-QUa" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="104" id="RyD-Oa-WMb"/>
+                            <constraint firstAttribute="bottom" secondItem="et7-SK-jfi" secondAttribute="bottom" constant="94" id="XRf-li-uTN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9eN-3D-QUa" secondAttribute="trailing" constant="30" id="n36-KW-3Ck"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
