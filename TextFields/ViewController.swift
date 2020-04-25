@@ -13,6 +13,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var upperTextField: UITextField!
     @IBOutlet weak var lowerTextField: UITextField!
     
+    @IBOutlet weak var containerViewBottomConstraint: NSLayoutConstraint!
+    
     var activeTextField: UITextField?
     
     override func viewDidLoad() {
@@ -36,14 +38,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     func registerForKeyboardNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     @objc func keyboardWillShow(_ notification: NSNotification) {
         
-        let keyboardSpacing: CGFloat = 16.0 // Standard value for spacing between keyboard and textfield
+        let keyboardSpacing: CGFloat = 8.0 // Standard value for spacing between keyboard and textfield
+        
+        let safeArea = view.safeAreaLayoutGuide.layoutFrame
         
         guard let userInfo = notification.userInfo,
             let keyboardFrameValue = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
@@ -53,15 +57,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         guard let activeTextFieldFrame = activeTextField?.frame else { return }
         
-        let positionShift = activeTextFieldFrame.origin.y + activeTextFieldFrame.height - keyboardFrame.origin.y + keyboardSpacing
+        let positionShift = activeTextFieldFrame.origin.y + activeTextFieldFrame.height + safeArea.origin.y - keyboardFrame.origin.y + keyboardSpacing
+        
+        print("Move by \(positionShift) pixels")
         
         if positionShift > 0 {
-            view.frame.origin.y = -positionShift
+            containerViewBottomConstraint.constant = positionShift
         }
     }
     
     @objc func keyboardWillHide(_ notification: NSNotification) {
-        view.frame.origin.y = 0
+        containerViewBottomConstraint.constant = 0
     }
 }
 
