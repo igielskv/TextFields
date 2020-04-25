@@ -59,8 +59,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         let positionShift = activeTextFieldFrame.origin.y + activeTextFieldFrame.height + safeArea.origin.y - keyboardFrame.origin.y + keyboardSpacing
         
-        print("Move by \(positionShift) pixels")
-        
         if positionShift > 0 {
             containerViewBottomConstraint.constant = positionShift
         }
